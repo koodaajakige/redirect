@@ -9,14 +9,33 @@ $osoitteet = array("NG5TG" => "https://www.w3schools.com/php/",
 "UDCJ9" =>	"https://phpapprentice.com/",
 "ZZU1M" =>	"https://phptherightway.com/");
 
-// Poimitaan URL-osoitteesta hash-parametrin arvo.
-$hash = $_GET["hash"];
+// Tarkistetaan, onko URL-osoitteessa annettu hash-parametri.
+if (isset($_GET["hash"])) {
 
-// Haetaan $hash-muuttujan arvoa vastaava osoite.
-$url = $osoitteet[$hash];
+    // hash-parametrilla on arvo, poimitaan se muuttujaan.
+    $hash = $_GET["hash"];
 
-// Edelleenohjataan hash-tunnusta vastaavaan osoitteeseen.
-header('Location: '. $url);    
-exit;
+    // Tarkistetaan, onko taulukossa arvoa hash-muuttujan arvolla.
+    if (isset($osoitteet[$hash])) {
 
+    // Taulukossa on hash-muuttujaa vastaava avain, haetaan osoite.
+    $url = $osoitteet[$hash];
+
+    // Edelleenohjataan taulukosta löytyvään osoitteeseen.
+    header("Location: " . $url);
+    exit;
+
+    } else {
+    // Taulukosta ei löytynyt hash-muuttujaa vastaavaa avainta,
+    // tulostetaan virheilmoitus.
+    echo "Väärä tunniste :(";
+    }
+
+  } else {
+    // hash-parametrilla ei ole arvoa, tulostetaan käyttäjälle
+    // esittelyteksti.
+    echo "Tämä on osoitteiden lyhentäjä. Odota maltilla, " .
+    "tänne tulee tulevaisuudessa lisää toiminnallisuutta.";
+    }
+    
 ?>
