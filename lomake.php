@@ -83,7 +83,6 @@ $stmt2->execute([$hash, $url, $ip]);
 $pagestatus = 1;
 $shorturl = $baseurl . $hash;
 
-
   } catch (PDOException $e) {
   // Avaamisessa tapahtui virhe, tulostetaan virheilmoitus.
   $pagestatus = -2;
@@ -227,10 +226,8 @@ if (isset($_GET["hash"])) {
     </main>
     <footer>
       <hr>
-      &copy; Kige Solutions
+      &copy; Kurpitsa Solutions
     </footer>
   </div>
   </body>
 </html>
-
-
