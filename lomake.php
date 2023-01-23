@@ -226,7 +226,7 @@ if (isset($_GET["hash"])) {
     </main>
     <footer>
       <hr>
-      &copy; Kurpitsa Solutions
+      &copy; Kige Solutions
     </footer>
   </div>
   </body>
